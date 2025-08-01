@@ -51,13 +51,17 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black text-white overflow-x-hidden">
-      <SimpleHeroSection />
-      <FeaturesSection />
-      <StatsSection />
-      <TestimonialsSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <>
+      <main className="min-h-screen bg-black text-white overflow-x-hidden">
+        <SimpleHeroSection />
+        <FeaturesSection />
+        <StatsSection />
+        <TestimonialsSection />
+        <ContactSection />
+        <Footer />
+      </main>
+      <SpeedInsights />
+      <Analytics />
+    </>
   )
 }
