@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -23,9 +23,20 @@ import {
   QrCode,
 } from "lucide-react"
 
+// Use union with refinement for conditional validation
 const cryptoPaymentSchema = z.object({
   paymentType: z.enum(["buy-now", "make-offer"]),
-  offerAmount: z.string().optional(),
+  // offerAmount should be optional for buy-now but required & numeric for make-offer
+  offerAmount: z
+    .string()
+    .optional()
+    .refine((val) => {
+      // if make-offer, must be a number string between 100 and 10000
+      if (!val) return false
+      const num = Number(val)
+      return num >= 100 && num <= 10000
+    }, { message: "Offer amount must be between 100 and 10000 USD" })
+    .or(z.literal("")), // allow empty string to pass for buy-now
   cryptocurrency: z.string().min(1, "Please select a cryptocurrency"),
 
   // Personal Information
@@ -44,6 +55,17 @@ const cryptoPaymentSchema = z.object({
 
   // Agreement
   agreeTerms: z.boolean().refine((val) => val === true, "You must agree to the terms"),
+}).superRefine((data, ctx) => {
+  // additional conditional check for offerAmount presence
+  if (data.paymentType === "make-offer") {
+    if (!data.offerAmount || data.offerAmount.trim() === "") {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Offer amount is required when making an offer",
+        path: ["offerAmount"],
+      })
+    }
+  }
 })
 
 type CryptoPaymentForm = z.infer<typeof cryptoPaymentSchema>
@@ -51,7 +73,7 @@ type CryptoPaymentForm = z.infer<typeof cryptoPaymentSchema>
 const cryptocurrencies = [
   { code: "BTC", name: "Bitcoin", icon: "₿", color: "text-orange-400" },
   { code: "ETH", name: "Ethereum", icon: "Ξ", color: "text-blue-400" },
-  { code: "USDT", name: "Tether USD", icon: "₮", color: "text-green-400" },
+  { code: "usdterc20", name: "Tether USD (ERC20)", icon: "₮", color: "text-green-400" },
   { code: "SOL", name: "Solana", icon: "◎", color: "text-purple-400" },
   { code: "BNB", name: "Binance Coin", icon: "⬡", color: "text-yellow-400" },
   { code: "ADA", name: "Cardano", icon: "₳", color: "text-blue-500" },
@@ -86,8 +108,17 @@ export default function CryptoPaymentModal({ isOpen, onClose, paymentType }: Cry
     },
   })
 
+  // Sync paymentType from props if it changes
+  useEffect(() => {
+    setValue("paymentType", paymentType)
+    // reset offerAmount when paymentType changes to avoid stale data
+    if (paymentType === "buy-now") {
+      setValue("offerAmount", "")
+    }
+  }, [paymentType, setValue])
+
   const selectedCrypto = watch("cryptocurrency")
-  const offerAmount = watch("offerAmount")
+  const offerAmount = watch("offerAmount") || ""
 
   const onSubmit = async (data: CryptoPaymentForm) => {
     setIsSubmitting(true)
@@ -132,7 +163,7 @@ export default function CryptoPaymentModal({ isOpen, onClose, paymentType }: Cry
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
+    <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-gray-900 to-black border-2 border-green-400/30">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-white flex items-center gap-2">
@@ -147,7 +178,6 @@ export default function CryptoPaymentModal({ isOpen, onClose, paymentType }: Cry
         </DialogHeader>
 
         {paymentResult ? (
-          // Payment Success Screen with QR Code Info
           <div className="text-center py-8">
             <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-white mb-4">Payment Page Ready!</h3>
@@ -169,6 +199,12 @@ export default function CryptoPaymentModal({ isOpen, onClose, paymentType }: Cry
                     {paymentResult.payAmount} {paymentResult.cryptocurrency}
                   </p>
                 </div>
+                
+<div>
+  <p className="text-gray-400 text-sm">Wallet Address</p>
+  <p className="text-yellow-400 font-mono text-sm break-all">{paymentResult.paymentAddress || paymentResult.walletAddress || "N/A"}</p>
+</div>
+
                 <div>
                   <p className="text-gray-400 text-sm">Payment ID</p>
                   <p className="text-purple-400 font-mono text-sm">{paymentResult.paymentId}</p>
@@ -227,8 +263,9 @@ export default function CryptoPaymentModal({ isOpen, onClose, paymentType }: Cry
                       className="bg-gray-700 border-gray-600 text-white"
                       placeholder="2500"
                       type="number"
-                      min="100"
-                      max="10000"
+                      min={100}
+                      max={10000}
+                      step={1}
                     />
                     {errors.offerAmount && <p className="text-red-400 text-sm mt-1">{errors.offerAmount.message}</p>}
                   </div>
@@ -514,8 +551,8 @@ export default function CryptoPaymentModal({ isOpen, onClose, paymentType }: Cry
                 {isSubmitting
                   ? "Creating Payment..."
                   : paymentType === "buy-now"
-                    ? "Create Payment Page"
-                    : "Submit Crypto Offer"}
+                  ? "Create Payment Page"
+                  : "Submit Crypto Offer"}
                 <Coins className="ml-2 w-5 h-5" />
               </Button>
             </div>
