@@ -1,0 +1,15 @@
+{
+  "name": "NvidiaCore",
+  "short_name": "NCore",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101820",
+  "theme_color": "#00FF99",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "64x64"
+    }
+  ]
+}

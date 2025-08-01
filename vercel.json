@@ -1,0 +1,30 @@
+{
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "functions": {
+    "app/api/contact/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/crypto-payment/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/payment-webhook/route.ts": {
+      "maxDuration": 30
+    },
+    "app/api/test-nowpayments/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "RESEND_API_KEY": "@resend-api-key",
+    "NOWPAYMENTS_API_KEY": "@nowpayments-api-key",
+    "NOWPAYMENTS_PUBLIC_KEY": "@nowpayments-public-key",
+    "NEXT_PUBLIC_SITE_URL": "@site-url",
+    "CONTACT_EMAIL": "@contact-email",
+    "CONTACT_PHONE": "@contact-phone",
+    "WHATSAPP_URL": "@whatsapp-url",
+    "DISCORD_URL": "@discord-url",
+    "FACEBOOK_URL": "@facebook-url"
+  }
+}
