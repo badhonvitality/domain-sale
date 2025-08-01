@@ -388,7 +388,7 @@ export async function POST(request: NextRequest) {
       invoiceUrl: paymentResult.invoice_url,
       paymentId: paymentResult.payment_id,
       orderId: orderId,
-      payAddress: paymentResult.pay_address,
+      paymentAddress: paymentResult.pay_address,
       payAmount: paymentResult.pay_amount || estimatedAmount,
       cryptocurrency: cryptocurrency.toUpperCase(),
       expiresAt: paymentResult.expires_at,
