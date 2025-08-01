@@ -119,6 +119,14 @@ export default function SimpleHeroSection() {
             Buy Now - Atom.com
             <ExternalLink className="ml-2 w-5 h-5" />
           </Button>
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105"
+            onClick={() => openCryptoModal("buy-now")}
+          >
+            Buy with Crypto
+            <Coins className="ml-2 w-5 h-5" />
+          </Button>
 
           
         </div>
