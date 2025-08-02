@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, JetBrains_Mono, Orbitron } from "next/font/google"
@@ -523,16 +524,16 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
 
         {/* Enhanced Google Analytics with Advanced Tracking */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWFT3SXFW4" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID', {
+              gtag('config', 'G-FWFT3SXFW4', {
                 page_title: 'NvidiaCore.com - Premium AI Domain',
-                page_location: 'https://nvidiacore.com',
+                page_location: 'https://www.nvidiacore.com',
                 content_group1: 'Domain Sales',
                 content_group2: 'AI Technology',
                 content_group3: 'Premium Domains',
@@ -821,21 +822,24 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <Suspense
-          fallback={
-            <div className="min-h-screen bg-black flex items-center justify-center">
-              <div className="text-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-400 mx-auto mb-4"></div>
-                <div className="text-white text-xl font-bold">Loading NvidiaCore.com...</div>
-                <div className="text-gray-400 text-sm mt-2">World's #1 Premium AI Domain</div>
-              </div>
-            </div>
-          }
-        >
-          {children}
-          <Toaster />
-        </Suspense>
-      </body>
+  <Suspense
+    fallback={
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-400 mx-auto mb-4"></div>
+          <div className="text-white text-xl font-bold">Loading NvidiaCore.com...</div>
+          <div className="text-gray-400 text-sm mt-2">World's #1 Premium AI Domain</div>
+        </div>
+      </div>
+    }
+  >
+    {children}
+    <Toaster />
+  </Suspense>
+  <SpeedInsights />
+  <Analytics />
+</body>
+
     </html>
   )
 }
