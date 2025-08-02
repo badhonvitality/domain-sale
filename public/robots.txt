@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /api/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /server/
+Allow: /
+
+Sitemap: https://www.nvidiacore.com/sitemap.xml
