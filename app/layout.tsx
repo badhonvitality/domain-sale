@@ -28,7 +28,7 @@ const orbitron = Orbitron({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nvidiacore.com"),
+  metadataBase: new URL("https://www.nvidiacore.com"),
   title: {
     default:
       "🔥 NvidiaCore.com - Premium AI GPU Domain For Sale | $3,499 | Buy Now | World's #1 Tech Domain Marketplace",
@@ -375,7 +375,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://nvidiacore.com",
+    url: "https://www.nvidiacore.com",
     siteName: "NvidiaCore.com - World's #1 Premium AI GPU Domain Marketplace",
     title: "🔥 NvidiaCore.com - Premium AI GPU Domain For Sale | $3,499 | World's Most Advanced Tech Domain",
     description:
@@ -429,15 +429,15 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://nvidiacore.com",
+    canonical: "https://www.nvidiacore.com",
     languages: {
-      "en-US": "https://nvidiacore.com",
-      "en-GB": "https://nvidiacore.com/en-gb",
-      "en-CA": "https://nvidiacore.com/en-ca",
-      "en-AU": "https://nvidiacore.com/en-au",
-      "en-IN": "https://nvidiacore.com/en-in",
-      "en-SG": "https://nvidiacore.com/en-sg",
-      "en-ZA": "https://nvidiacore.com/en-za",
+      "en-US": "https://www.nvidiacore.com",
+      "en-GB": "https://www.nvidiacore.com/en-gb",
+      "en-CA": "https://www.nvidiacore.com/en-ca",
+      "en-AU": "https://www.nvidiacore.com/en-au",
+      "en-IN": "https://www.nvidiacore.com/en-in",
+      "en-SG": "https://www.nvidiacore.com/en-sg",
+      "en-ZA": "https://www.nvidiacore.com/en-za",
     },
   },
   verification: {
@@ -478,7 +478,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${jetbrains.variable} ${orbitron.variable}`}>
       <head>
         {/* Enhanced SEO Meta Tags */}
-        <link rel="canonical" href="https://nvidiacore.com" />
+        <link rel="canonical" href="https://www.nvidiacore.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         <meta name="theme-color" content="#00ff88" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -586,20 +586,20 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "WebSite",
-                  "@id": "https://nvidiacore.com/#website",
-                  url: "https://nvidiacore.com",
+                  "@id": "https://www.nvidiacore.com/#website",
+                  url: "https://www.nvidiacore.com",
                   name: "NvidiaCore.com - World's #1 Premium AI Domain Marketplace",
                   description:
                     "World's most advanced premium AI GPU domain for sale. Perfect for artificial intelligence, machine learning, GPU computing, and tech startups.",
                   publisher: {
-                    "@id": "https://nvidiacore.com/#organization",
+                    "@id": "https://www.nvidiacore.com/#organization",
                   },
                   potentialAction: [
                     {
                       "@type": "SearchAction",
                       target: {
                         "@type": "EntryPoint",
-                        urlTemplate: "https://nvidiacore.com/?s={search_term_string}",
+                        urlTemplate: "https://www.nvidiacore.com/?s={search_term_string}",
                       },
                       "query-input": "required name=search_term_string",
                     },
@@ -608,21 +608,21 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Organization",
-                  "@id": "https://nvidiacore.com/#organization",
+                  "@id": "https://www.nvidiacore.com/#organization",
                   name: "NvidiaCore Domain Sales",
-                  url: "https://nvidiacore.com",
+                  url: "https://www.nvidiacore.com",
                   logo: {
                     "@type": "ImageObject",
                     inLanguage: "en-US",
-                    "@id": "https://nvidiacore.com/#/schema/logo/image/",
-                    url: "https://nvidiacore.com/logo.png",
-                    contentUrl: "https://nvidiacore.com/logo.png",
+                    "@id": "https://www.nvidiacore.com/#/schema/logo/image/",
+                    url: "https://www.nvidiacore.com/logo.png",
+                    contentUrl: "https://www.nvidiacore.com/logo.png",
                     width: 512,
                     height: 512,
                     caption: "NvidiaCore.com",
                   },
                   image: {
-                    "@id": "https://nvidiacore.com/#/schema/logo/image/",
+                    "@id": "https://www.nvidiacore.com/#/schema/logo/image/",
                   },
                   sameAs: ["https://facebook.com/badhonvitality", "https://discord.com/users/1121859070488498196"],
                   founder: {
@@ -633,14 +633,14 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Product",
-                  "@id": "https://nvidiacore.com/#product",
+                  "@id": "https://www.nvidiacore.com/#product",
                   name: "NvidiaCore.com Premium AI Domain",
                   description:
                     "World's most premium AI GPU domain perfect for artificial intelligence, machine learning, GPU computing, neural networks, deep learning, computer vision, robotics, autonomous vehicles, cryptocurrency mining, gaming technology, data centers, cloud computing, and tech startups.",
                   image: [
-                    "https://nvidiacore.com/product-image-1.jpg",
-                    "https://nvidiacore.com/product-image-2.jpg",
-                    "https://nvidiacore.com/product-image-3.jpg",
+                    "https://www.nvidiacore.com/product-image-1.jpg",
+                    "https://www.nvidiacore.com/product-image-2.jpg",
+                    "https://www.nvidiacore.com/product-image-3.jpg",
                   ],
                   brand: {
                     "@type": "Brand",
@@ -653,7 +653,7 @@ export default function RootLayout({
                   gtin: "1234567890123",
                   offers: {
                     "@type": "Offer",
-                    url: "https://nvidiacore.com",
+                    url: "https://www.nvidiacore.com",
                     priceCurrency: "USD",
                     price: "3499",
                     priceValidUntil: "2025-12-31",
@@ -755,64 +755,64 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebPage",
-                  "@id": "https://nvidiacore.com/#webpage",
-                  url: "https://nvidiacore.com",
+                  "@id": "https://www.nvidiacore.com/#webpage",
+                  url: "https://www.nvidiacore.com",
                   name: "NvidiaCore.com - Premium AI GPU Domain For Sale",
                   isPartOf: {
-                    "@id": "https://nvidiacore.com/#website",
+                    "@id": "https://www.nvidiacore.com/#website",
                   },
                   about: {
-                    "@id": "https://nvidiacore.com/#organization",
+                    "@id": "https://www.nvidiacore.com/#organization",
                   },
                   primaryImageOfPage: {
-                    "@id": "https://nvidiacore.com/#primaryimage",
+                    "@id": "https://www.nvidiacore.com/#primaryimage",
                   },
                   image: {
-                    "@id": "https://nvidiacore.com/#primaryimage",
+                    "@id": "https://www.nvidiacore.com/#primaryimage",
                   },
-                  thumbnailUrl: "https://nvidiacore.com/thumbnail.jpg",
+                  thumbnailUrl: "https://www.nvidiacore.com/thumbnail.jpg",
                   datePublished: "2024-01-01T00:00:00+00:00",
                   dateModified: "2024-01-20T00:00:00+00:00",
                   description:
                     "World's most premium AI GPU domain for sale. Perfect for artificial intelligence, machine learning, GPU computing, and tech startups. Clean history, instant transfer.",
                   breadcrumb: {
-                    "@id": "https://nvidiacore.com/#breadcrumb",
+                    "@id": "https://www.nvidiacore.com/#breadcrumb",
                   },
                   inLanguage: "en-US",
                   potentialAction: [
                     {
                       "@type": "ReadAction",
-                      target: ["https://nvidiacore.com"],
+                      target: ["https://www.nvidiacore.com"],
                     },
                   ],
                 },
                 {
                   "@type": "BreadcrumbList",
-                  "@id": "https://nvidiacore.com/#breadcrumb",
+                  "@id": "https://www.nvidiacore.com/#breadcrumb",
                   itemListElement: [
                     {
                       "@type": "ListItem",
                       position: 1,
                       name: "Home",
-                      item: "https://nvidiacore.com",
+                      item: "https://www.nvidiacore.com",
                     },
                     {
                       "@type": "ListItem",
                       position: 2,
                       name: "Premium Domains",
-                      item: "https://nvidiacore.com/premium-domains",
+                      item: "https://www.nvidiacore.com/premium-domains",
                     },
                     {
                       "@type": "ListItem",
                       position: 3,
                       name: "AI Domains",
-                      item: "https://nvidiacore.com/ai-domains",
+                      item: "https://www.nvidiacore.com/ai-domains",
                     },
                     {
                       "@type": "ListItem",
                       position: 4,
                       name: "NvidiaCore.com",
-                      item: "https://nvidiacore.com",
+                      item: "https://www.nvidiacore.com",
                     },
                   ],
                 },
