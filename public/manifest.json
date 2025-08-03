@@ -5,11 +5,12 @@
   "display": "standalone",
   "background_color": "#101820",
   "theme_color": "#00FF99",
+  "description": "NvidiaCore - High performance and modern web technology hub.",
   "icons": [
     {
-      "src": "./favicon.svg",
+      "src": "/favicon.svg",
       "type": "image/svg+xml",
-      "sizes": "64x64"
+      "sizes": "any"
     }
   ]
 }
