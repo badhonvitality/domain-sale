@@ -102,6 +102,13 @@ export default function HomePage() {
           })(window, document, "clarity", "script", "sp5vev7n6t");`,
         }}
       />
+
+      {/* ✅ Sentry Error Tracking */}
+      <Script
+        src="https://js.sentry-cdn.com/4f21de0047d7fa6529af581dc4d06c07.min.js"
+        strategy="afterInteractive"
+        crossOrigin="anonymous"
+      />
     </>
   )
 }
