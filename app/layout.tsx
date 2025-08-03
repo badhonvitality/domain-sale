@@ -523,7 +523,42 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
 
-        {/* Enhanced Google Analytics with Advanced Tracking */}
+
+      {/* ✅ Hotjar Analytics */}
+      <Script id="hotjar" strategy="afterInteractive">
+        {`
+          (function(h,o,t,j,a,r){
+            h.hj = h.hj || function() {(h.hj.q = h.hj.q || []).push(arguments)};
+            h._hjSettings = { hjid: 6482824, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+          })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+        `}
+      </Script>
+
+      {/* ✅ Ahrefs Analytics */}
+        <script src="https://analytics.ahrefs.com/analytics.js" data-key="VPxbncXMeSzwDXKvNR3MVw" async></script>
+
+      {/* ✅ Microsoft Clarity Analytics */}
+      <Script
+        id="clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(c,l,a,r,i,t,y){
+              c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
+              t = l.createElement(r); t.async = 1;
+              t.src = "https://www.clarity.ms/tag/" + i;
+              y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "sp5vev7n6t");
+          `,
+        }}
+      />
+
+
+        {/* ✅ Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWFT3SXFW4" />
         <script
           dangerouslySetInnerHTML={{
