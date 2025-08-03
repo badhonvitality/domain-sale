@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import SimpleHeroSection from "@/components/simple-hero-section"
 import FeaturesSection from "@/components/features-section"
 import StatsSection from "@/components/stats-section"
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
     "nvidiacore.com, premium AI domain, GPU domain, tech startup domain, brandable domain, AI company name, nvidia domain, core technology domain",
   openGraph: {
     title: "NvidiaCore.com - Premium AI Domain for Sale",
-    description: "Premium domain perfect for AI and GPU companies. Clean history, instant transfer available.",
+    description:
+      "Premium domain perfect for AI and GPU companies. Clean history, instant transfer available.",
     url: "https://nvidiacore.com",
     siteName: "NvidiaCore Domain Sales",
     images: [
@@ -33,7 +35,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "NvidiaCore.com - Premium AI Domain for Sale",
-    description: "Premium domain perfect for AI and GPU companies. Clean history, instant transfer available.",
+    description:
+      "Premium domain perfect for AI and GPU companies. Clean history, instant transfer available.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -60,8 +63,45 @@ export default function HomePage() {
         <ContactSection />
         <Footer />
       </main>
+
+      {/* ✅ Vercel Insights */}
       <SpeedInsights />
       <Analytics />
+
+      {/* ✅ Hotjar Analytics */}
+      <Script id="hotjar" strategy="afterInteractive">
+        {`
+          (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6482824,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        `}
+      </Script>
+
+      {/* ✅ Ahrefs Analytics */}
+      <Script
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="VPxbncXMeSzwDXKvNR3MVw"
+        strategy="afterInteractive"
+        async
+      />
+
+      {/* ✅ Microsoft Clarity Tracking */}
+      <Script
+        id="microsoft-clarity"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "sp5vev7n6t");`,
+        }}
+      />
     </>
   )
 }
