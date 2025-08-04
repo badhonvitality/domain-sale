@@ -526,7 +526,7 @@ export default function RootLayout({
 
 
         {/* ✅ Google Analytics */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9208634955061959"
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9208634955061959"
      crossorigin="anonymous"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWFT3SXFW4" />
         <script
