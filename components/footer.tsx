@@ -56,8 +56,19 @@ export default function Footer() {
                   Domain Statistics
                 </a>
               </li>
+               <li>
+                <a href="/privacy-policy" className="hover:text-cyan-400 transition-colors">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="/terms" className="hover:text-cyan-400 transition-colors">
+                   Terms & Conditions
+                </a>
+              </li>                           
             </ul>
           </div>
+          
 
           {/* Industries */}
           <div className="text-center sm:text-left">
