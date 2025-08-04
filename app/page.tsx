@@ -109,8 +109,6 @@ export default function HomePage() {
         strategy="afterInteractive"
         crossOrigin="anonymous"
       />
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9208634955061959"
-     crossorigin="anonymous"></script>
     <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/0455f0dce2a7da0c5608e1f271c9b64b.js"></script>
     </>
   )
