@@ -485,7 +485,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
         {/* Advanced SEO Tags */}
-        <meta name="google-adsense-account" content="ca-pub-9208634955061959">
         <meta name="geo.region" content="US" />
         <meta name="geo.placename" content="Global" />
         <meta name="geo.position" content="40.7128;-74.0060" />
