@@ -110,16 +110,6 @@ export default function HomePage() {
         crossOrigin="anonymous"
       />
     <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/0455f0dce2a7da0c5608e1f271c9b64b.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17433507013"></script>
-    <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17433507013');
-    </script>
-
-
     </>
   )
 }
