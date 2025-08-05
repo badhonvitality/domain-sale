@@ -185,24 +185,6 @@ export default function SimpleHeroSection() {
           ✓ 11 months old • ✓ Clean history • ✓ No trademarks • ✓ Multiple payment options
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-            <span>{viewersOnline.toLocaleString()} viewers online</span>
-          </div>
-          <span>•</span>
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <span>{interestedBuyers} interested buyers</span>
-          </div>
-          <span>•</span>
-          <div className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
-            <span>{totalViews.toLocaleString()} total views</span>
-          </div>
-        </div>
-      </div>
-
       <CryptoPaymentModal
         isOpen={cryptoModalOpen}
         onClose={() => setCryptoModalOpen(false)}
