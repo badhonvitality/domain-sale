@@ -8,45 +8,17 @@ import CryptoPaymentModal from "./crypto-payment-modal"
 export default function SimpleHeroSection() {
   const [cryptoModalOpen, setCryptoModalOpen] = useState(false)
   const [paymentType, setPaymentType] = useState<"buy-now" | "make-offer">("buy-now")
-  const [viewersOnline, setViewersOnline] = useState(0)
-  const [interestedBuyers, setInterestedBuyers] = useState(0)
-  const [totalViews, setTotalViews] = useState(0)
+  // Removed the following states because viewer stats UI removed
+  // const [viewersOnline, setViewersOnline] = useState(0)
+  // const [interestedBuyers, setInterestedBuyers] = useState(0)
+  // const [totalViews, setTotalViews] = useState(0)
 
   const openCryptoModal = (type: "buy-now" | "make-offer") => {
     setPaymentType(type)
     setCryptoModalOpen(true)
   }
 
-  // Fetch real-time viewers from backend
-  useEffect(() => {
-    const fetchViewers = async () => {
-      try {
-        const res = await fetch("/api/track", { cache: "no-store" })
-        const data = await res.json()
-        setViewersOnline(data.count)
-      } catch (err) {
-        console.error("Error fetching viewer count:", err)
-      }
-    }
-
-    fetchViewers()
-    const interval = setInterval(fetchViewers, 5000)
-    return () => clearInterval(interval)
-  }, [])
-
-  // Total view logic: only count once per device
-  useEffect(() => {
-    const alreadyViewed = localStorage.getItem("nvidiacore_total_view_recorded")
-    if (!alreadyViewed) {
-      fetch("/api/track") // call once to count
-      localStorage.setItem("nvidiacore_total_view_recorded", "true")
-    }
-  }, [])
-
-  useEffect(() => {
-    const current = parseInt(localStorage.getItem("nvidiacore_total_view_count") || "0", 10)
-    setTotalViews(current)
-  }, [])
+  // Remove fetching or other code related to viewer stats since UI removed
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -184,6 +156,7 @@ export default function SimpleHeroSection() {
         <div className="mt-8 text-gray-400 text-sm">
           ✓ 11 months old • ✓ Clean history • ✓ No trademarks • ✓ Multiple payment options
         </div>
+      </div>
 
       <CryptoPaymentModal
         isOpen={cryptoModalOpen}
