@@ -17,16 +17,20 @@ export default function SimpleHeroSection() {
     setCryptoModalOpen(true)
   }
 
-  // Simulated viewer and buyer counter
+  // Fetch real-time viewers from backend
   useEffect(() => {
-    const updateCounts = () => {
-      setViewersOnline(Math.floor(Math.random() * 1000) + 500) // 500–1500
-      setInterestedBuyers(Math.floor(Math.random() * 30) + 10) // 10–40
+    const fetchViewers = async () => {
+      try {
+        const res = await fetch("/api/track", { cache: "no-store" })
+        const data = await res.json()
+        setViewersOnline(data.count)
+      } catch (err) {
+        console.error("Error fetching viewer count:", err)
+      }
     }
 
-    updateCounts()
-    const interval = setInterval(updateCounts, 60000)
-
+    fetchViewers()
+    const interval = setInterval(fetchViewers, 5000)
     return () => clearInterval(interval)
   }, [])
 
@@ -34,16 +38,14 @@ export default function SimpleHeroSection() {
   useEffect(() => {
     const alreadyViewed = localStorage.getItem("nvidiacore_total_view_recorded")
     if (!alreadyViewed) {
-      // simulate server-side counter using localStorage
-      const current = parseInt(localStorage.getItem("nvidiacore_total_view_count") || "0", 10)
-      const updated = current + 1
-      localStorage.setItem("nvidiacore_total_view_count", updated.toString())
+      fetch("/api/track") // call once to count
       localStorage.setItem("nvidiacore_total_view_recorded", "true")
-      setTotalViews(updated)
-    } else {
-      const current = parseInt(localStorage.getItem("nvidiacore_total_view_count") || "0", 10)
-      setTotalViews(current)
     }
+  }, [])
+
+  useEffect(() => {
+    const current = parseInt(localStorage.getItem("nvidiacore_total_view_count") || "0", 10)
+    setTotalViews(current)
   }, [])
 
   return (
@@ -141,7 +143,6 @@ export default function SimpleHeroSection() {
           </div>
         </div>
 
-        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button
             size="lg"
@@ -161,7 +162,6 @@ export default function SimpleHeroSection() {
           </Button>
         </div>
 
-        {/* Make Offer Button */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button
             variant="outline"
@@ -181,12 +181,10 @@ export default function SimpleHeroSection() {
           </Button>
         </div>
 
-        {/* Metadata */}
         <div className="mt-8 text-gray-400 text-sm">
           ✓ 11 months old • ✓ Clean history • ✓ No trademarks • ✓ Multiple payment options
         </div>
 
-        {/* ✅ Real-Time Indicators + Views */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
@@ -205,7 +203,6 @@ export default function SimpleHeroSection() {
         </div>
       </div>
 
-      {/* Crypto Modal */}
       <CryptoPaymentModal
         isOpen={cryptoModalOpen}
         onClose={() => setCryptoModalOpen(false)}
