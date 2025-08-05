@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Zap, Cpu, Brain, ExternalLink, Coins, DollarSign } from "lucide-react"
 import CryptoPaymentModal from "./crypto-payment-modal"
@@ -8,20 +8,50 @@ import CryptoPaymentModal from "./crypto-payment-modal"
 export default function SimpleHeroSection() {
   const [cryptoModalOpen, setCryptoModalOpen] = useState(false)
   const [paymentType, setPaymentType] = useState<"buy-now" | "make-offer">("buy-now")
+  const [viewersOnline, setViewersOnline] = useState(0)
+  const [interestedBuyers, setInterestedBuyers] = useState(0)
+  const [totalViews, setTotalViews] = useState(0)
 
   const openCryptoModal = (type: "buy-now" | "make-offer") => {
     setPaymentType(type)
     setCryptoModalOpen(true)
   }
 
+  // Simulated viewer and buyer counter
+  useEffect(() => {
+    const updateCounts = () => {
+      setViewersOnline(Math.floor(Math.random() * 1000) + 500) // 500–1500
+      setInterestedBuyers(Math.floor(Math.random() * 30) + 10) // 10–40
+    }
+
+    updateCounts()
+    const interval = setInterval(updateCounts, 60000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  // Total view logic: only count once per device
+  useEffect(() => {
+    const alreadyViewed = localStorage.getItem("nvidiacore_total_view_recorded")
+    if (!alreadyViewed) {
+      // simulate server-side counter using localStorage
+      const current = parseInt(localStorage.getItem("nvidiacore_total_view_count") || "0", 10)
+      const updated = current + 1
+      localStorage.setItem("nvidiacore_total_view_count", updated.toString())
+      localStorage.setItem("nvidiacore_total_view_recorded", "true")
+      setTotalViews(updated)
+    } else {
+      const current = parseInt(localStorage.getItem("nvidiacore_total_view_count") || "0", 10)
+      setTotalViews(current)
+    }
+  }, [])
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Enhanced Animated Background - Pure CSS */}
+      {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         <div className="absolute inset-0 tech-grid opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
-
-        {/* Animated particles using pure CSS */}
         <div className="absolute inset-0">
           {Array.from({ length: 30 }).map((_, i) => (
             <div
@@ -36,8 +66,6 @@ export default function SimpleHeroSection() {
             />
           ))}
         </div>
-
-        {/* Binary rain effect */}
         <div className="absolute inset-0 overflow-hidden opacity-20">
           {Array.from({ length: 15 }).map((_, i) => (
             <div
@@ -59,7 +87,7 @@ export default function SimpleHeroSection() {
         </div>
       </div>
 
-      {/* Large animated AI symbols - Pure CSS */}
+      {/* Center Icons */}
       <div className="absolute inset-0 z-10 flex items-center justify-center">
         <div className="text-center">
           <div className="text-9xl mb-8 animate-pulse text-green-400/20">⚡</div>
@@ -68,7 +96,7 @@ export default function SimpleHeroSection() {
         </div>
       </div>
 
-      {/* Floating geometric shapes - Pure CSS */}
+      {/* Geometric Shapes */}
       <div className="absolute inset-0 z-10">
         {Array.from({ length: 8 }).map((_, i) => (
           <div
@@ -84,14 +112,18 @@ export default function SimpleHeroSection() {
         ))}
       </div>
 
-      {/* Content */}
+      {/* Main Content */}
       <div className="relative z-20 text-center max-w-4xl mx-auto px-4">
         <div className="mb-8">
           <h1 className="hero-title-responsive font-bold mb-6 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse font-orbitron">
             NvidiaCore
           </h1>
-          <div className="hero-subtitle-responsive text-gray-300 mb-6 font-light">Premium AI Domain for Sale</div>
-          <div className="text-4xl md:text-5xl font-bold text-green-400 mb-8 animate-bounce font-orbitron">$3,499</div>
+          <div className="hero-subtitle-responsive text-gray-300 mb-6 font-light">
+            Premium AI Domain for Sale
+          </div>
+          <div className="text-4xl md:text-5xl font-bold text-green-400 mb-8 animate-bounce font-orbitron">
+            $3,499
+          </div>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -109,7 +141,7 @@ export default function SimpleHeroSection() {
           </div>
         </div>
 
-        {/* Primary Action Buttons */}
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Button
             size="lg"
@@ -127,58 +159,53 @@ export default function SimpleHeroSection() {
             Buy with Crypto
             <Coins className="ml-2 w-5 h-5" />
           </Button>
-
-          
         </div>
 
-        {/* Secondary Action Buttons */}
+        {/* Make Offer Button */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
- <Button
-  variant="outline"
-  size="lg"
-  className="button-ultra-responsive border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 bg-transparent hover:scale-105"
-  onClick={() => {
-    setTimeout(() => {
-      const el = document.getElementById("contact-section")
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" })
-      }
-    }, 100)
-  }}
->
-  Make Offer
-  <DollarSign className="ml-2 w-5 h-5" />
-</Button>
-
-
-
-          
+          <Button
+            variant="outline"
+            size="lg"
+            className="button-ultra-responsive border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-black px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 bg-transparent hover:scale-105"
+            onClick={() => {
+              setTimeout(() => {
+                const el = document.getElementById("contact-section")
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" })
+                }
+              }, 100)
+            }}
+          >
+            Make Offer
+            <DollarSign className="ml-2 w-5 h-5" />
+          </Button>
         </div>
 
+        {/* Metadata */}
         <div className="mt-8 text-gray-400 text-sm">
           ✓ 11 months old • ✓ Clean history • ✓ No trademarks • ✓ Multiple payment options
         </div>
 
-        {/* Live indicators */}
-        <div className="mt-6 flex items-center justify-center gap-4 text-xs text-gray-500">
+        {/* ✅ Real-Time Indicators + Views */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-            <span>1000 viewers online</span>
+            <span>{viewersOnline.toLocaleString()} viewers online</span>
           </div>
           <span>•</span>
           <div className="flex items-center gap-1">
             <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <span>23 interested buyers</span>
+            <span>{interestedBuyers} interested buyers</span>
           </div>
           <span>•</span>
           <div className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce"></div>
-            <span>7 active negotiations</span>
+            <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce"></div>
+            <span>{totalViews.toLocaleString()} total views</span>
           </div>
         </div>
       </div>
 
-      {/* Crypto Payment Modal */}
+      {/* Crypto Modal */}
       <CryptoPaymentModal
         isOpen={cryptoModalOpen}
         onClose={() => setCryptoModalOpen(false)}
