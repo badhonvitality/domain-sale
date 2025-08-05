@@ -7,7 +7,6 @@ import TestimonialsSection from "@/components/testimonials-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "NvidiaCore.com - Premium AI Domain for Sale | $3,499",
@@ -65,7 +64,6 @@ export default function HomePage() {
       </main>
 
       {/* ✅ Vercel Insights */}
-      <SpeedInsights />
       <Analytics />
 
       {/* ✅ Hotjar Analytics */}
