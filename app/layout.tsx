@@ -496,6 +496,7 @@ export default function RootLayout({
         <meta name="expires" content="never" />
         <meta name="pragma" content="no-cache" />
         <meta name="cache-control" content="no-cache" />
+        <meta name="coinzilla" content="567e8240741dc252b2a1223e4008a8f2" />
 
         {/* Rich Snippets */}
         <meta property="product:price:amount" content="3499" />
