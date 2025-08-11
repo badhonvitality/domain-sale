@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "NvidiaCore.com - Premium AI Domain for Sale",
     description:
       "Premium domain perfect for AI and GPU companies. Clean history, instant transfer available.",
-    url: "https://nvidiacore.com",
+    url: "https://www.nvidiacore.com",
     siteName: "NvidiaCore Domain Sales",
     images: [
       {
