@@ -525,12 +525,9 @@ export default function RootLayout({
 
 
         {/* ✅ Google Analytics */}
-        <script src="https://fpyf8.com/88/tag.min.js" data-zone="162638" async data-cfasync="false"></script>
         <script async src="https://cse.google.com/cse.js?cx=d459522f598cc4936">
 </script>
 <div class="gcse-search"></div>
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9208634955061959"
-     crossorigin="anonymous"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWFT3SXFW4" />
         <script
           dangerouslySetInnerHTML={{
