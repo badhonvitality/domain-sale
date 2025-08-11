@@ -79,9 +79,23 @@ export default function HomePage() {
           })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         `}
       </Script>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9208634955061959"
-     crossorigin="anonymous"></script>
-       <script src="https://fpyf8.com/88/tag.min.js" data-zone="162638" async data-cfasync="false"></script>
+
+      {/* Google Adsense */}
+      <Script
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9208634955061959"
+        strategy="afterInteractive"
+        crossOrigin="anonymous"
+        async
+      />
+
+      {/* FPYF8 Tag */}
+      <Script
+        src="https://fpyf8.com/88/tag.min.js"
+        data-zone="162638"
+        async
+        data-cfasync="false"
+        strategy="afterInteractive"
+      />
 
       {/* ✅ Ahrefs Analytics */}
       <Script
@@ -110,5 +124,6 @@ export default function HomePage() {
         strategy="afterInteractive"
         crossOrigin="anonymous"
       />
+    </>
   )
 }
