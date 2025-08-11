@@ -124,11 +124,17 @@ export default function HomePage() {
         strategy="afterInteractive"
         crossOrigin="anonymous"
       />
-              <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var l=window,v="e1ce1bf285a09b736491534bba87fa03",k=[["siteId",238+24-650*941+5838179],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","never"]],n=["d3d3LnByZW1pdW12ZXJ0aXNpbmcuY29tL2ZkamFuZ28ubWluLmNzcw==","ZDJqMDQyY2oxNDIxd2kuY2xvdWRmcm9udC5uZXQvQ0sveXNoYS5qcw=="],d=-1,r,g,y=function(){clearTimeout(g);d++;if(n[d]&&!(1780841521000<(new Date).getTime()&&1<d)){r=l.document.createElement("script");r.type="text/javascript";r.async=!0;var t=l.document.getElementsByTagName("script")[0];r.src="https://"+atob(n[d]);r.crossOrigin="anonymous";r.onerror=y;r.onload=function(){clearTimeout(g);l[v.slice(0,16)+v.slice(0,16)]||y()};g=setTimeout(y,5E3);t.parentNode.insertBefore(r,t)}};if(!l[v]){try{Object.freeze(l[v]=k)}catch(e){}y()}})();
-/*]]>/* */
-</script>
+
+      {/* ✅ Premium Advertising Script */}
+      <Script
+        id="premium-advertising"
+        strategy="afterInteractive"
+        data-cfasync="false"
+      >
+        {`
+          (function(){var l=window,v="e1ce1bf285a09b736491534bba87fa03",k=[["siteId",238+24-650*941+5838179],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","never"]],n=["d3d3LnByZW1pdW12ZXJ0aXNpbmcuY29tL2ZkamFuZ28ubWluLmNzcw==","ZDJqMDQyY2oxNDIxd2kuY2xvdWRmcm9udC5uZXQvQ0sveXNoYS5qcw=="],d=-1,r,g,y=function(){clearTimeout(g);d++;if(n[d]&&!(1780841521000<(new Date).getTime()&&1<d)){r=l.document.createElement("script");r.type="text/javascript";r.async=!0;var t=l.document.getElementsByTagName("script")[0];r.src="https://"+atob(n[d]);r.crossOrigin="anonymous";r.onerror=y;r.onload=function(){clearTimeout(g);l[v.slice(0,16)+v.slice(0,16)]||y()};g=setTimeout(y,5E3);t.parentNode.insertBefore(r,t)}};if(!l[v]){try{Object.freeze(l[v]=k)}catch(e){}y()}})();
+        `}
+      </Script>
     </>
   )
 }
