@@ -525,16 +525,6 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
 
 
-        {/* FPYF8 Tag */}
-<Script
-  src="https://fpyf8.com/88/tag.min.js"
-  data-zone="162638"
-  async
-  data-cfasync="false"
-  strategy="afterInteractive"
-/>
-
-
         {/* ✅ Google Analytics */}
         <script async src="https://cse.google.com/cse.js?cx=d459522f598cc4936">
 </script>
