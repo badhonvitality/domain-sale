@@ -869,7 +869,28 @@ export default function RootLayout({
       </head>
 <body className={`${inter.className} antialiased`}>
 
-  <div id="frame" style="width: 100%;"><iframe data-aa='2406432' src='//acceptable.a-ads.com/2406432' style='border:0px; padding:0; width:100%; height:100%; overflow:hidden; background-color: transparent;'></iframe><a style="display: block; text-align: right; font-size: 12px" id="frame-link" href="https://aads.com/campaigns/new/?source_id=2406432&source_type=ad_unit&partner=2406432">Advertise here</a></div>
+<div id="frame" style={{ width: "100%" }}>
+  <iframe
+    data-aa="2406432"
+    src="//acceptable.a-ads.com/2406432"
+    style={{
+      border: 0,
+      padding: 0,
+      width: "100%",
+      height: "100%",
+      overflow: "hidden",
+      backgroundColor: "transparent",
+    }}
+  ></iframe>
+  <a
+    id="frame-link"
+    href="https://aads.com/campaigns/new/?source_id=2406432&source_type=ad_unit&partner=2406432"
+    style={{ display: "block", textAlign: "right", fontSize: 12 }}
+  >
+    Advertise here
+  </a>
+</div>
+
   <Suspense
     fallback={
       <div className="min-h-screen bg-black flex items-center justify-center">
