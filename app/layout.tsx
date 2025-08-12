@@ -525,34 +525,46 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
 
          {/* ✅ PopAds Anti-Adblock */}
-<Script
-  id="popads-antiadblock"
-  strategy="beforeInteractive"
+       <script
+  type="text/javascript"
+  data-cfasync="false"
   dangerouslySetInnerHTML={{
     __html: `
-      // This feature is only for advanced users. Please refer to the documentation before using.
-      // Documentation: https://www.popads.net/help
-      // Manage API Keys: https://www.popads.net/account/api
-      // Anti-Adblock adcode:
+      /*<![CDATA[/* */
       (function(){
-        var _pop = _pop || [];
-        _pop.push(['siteId', 5226791]);
-        _pop.push(['minBid', 0]);
-        _pop.push(['popundersPerIP', 0]);
-        _pop.push(['delayBetween', 0]);
-        _pop.push(['default', false]);
-        _pop.push(['defaultPerDay', 0]);
-        _pop.push(['topmostLayer', 'never']);
-        var pa = document.createElement('script');
-        pa.type = 'text/javascript';
-        pa.async = true;
-        pa.src = 'https://www.popads.net/api/website_code?key=da77701b762fcaae226582242e10de79e9450fde&website_id=5226791&tl=auto&aab=1&of=1';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(pa, s);
+        var p = window,
+            w = "e1ce1bf285a09b736491534bba87fa03",
+            l = [["siteId", 339+876-916-102+5226594],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],
+            t = ["d3d3LnByZW1pdW12ZXJ0aXNpbmcuY29tL2dkamFuZ28ubWluLmNzcw==","ZDJqMDQyY2oxNDIxd2kuY2xvdWRmcm9udC5uZXQvbFEvenNoYS5qcw=="],
+            i = -1, f, a, k = function(){
+              clearTimeout(a);
+              i++;
+              if(t[i] && !(1780889102000 < (new Date).getTime() && 1 < i)){
+                f = p.document.createElement("script");
+                f.type = "text/javascript";
+                f.async = !0;
+                var u = p.document.getElementsByTagName("script")[0];
+                f.src = "https://" + atob(t[i]);
+                f.crossOrigin = "anonymous";
+                f.onerror = k;
+                f.onload = function(){
+                  clearTimeout(a);
+                  p[w.slice(0,16) + w.slice(0,16)] || k();
+                };
+                a = setTimeout(k, 5E3);
+                u.parentNode.insertBefore(f, u);
+              }
+            };
+        if(!p[w]){
+          try { Object.freeze(p[w] = l); } catch(e){}
+          k();
+        }
       })();
+      /*]]>/* */
     `,
   }}
 />
+
 
         {/* ✅ Google Analytics */}
         <script async src="https://cse.google.com/cse.js?cx=d459522f598cc4936">
