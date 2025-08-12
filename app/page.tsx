@@ -88,14 +88,6 @@ export default function HomePage() {
         async
       />
 
-      {/* FPYF8 Tag */}
-      <Script
-        src="https://fpyf8.com/88/tag.min.js"
-        data-zone="162638"
-        async
-        data-cfasync="false"
-        strategy="afterInteractive"
-      />
 
       {/* ✅ Ahrefs Analytics */}
       <Script
