@@ -60,6 +60,33 @@ export default function HomePage() {
         <StatsSection />
         <TestimonialsSection />
         <ContactSection />
+
+        {/* Inserted Ad iframe block here */}
+        <div
+          id="frame"
+          style={{
+            width: "100%",
+            margin: "auto",
+            background: "rgba(0, 0, 0, 0.50)",
+            position: "relative",
+            zIndex: 99998,
+          }}
+        >
+          <iframe
+            data-aa="2406445"
+            src="//acceptable.a-ads.com/2406445/?size=Adaptive"
+            style={{
+              border: 0,
+              padding: 0,
+              width: "70%",
+              height: "auto",
+              overflow: "hidden",
+              display: "block",
+              margin: "auto",
+            }}
+          ></iframe>
+        </div>
+
         <Footer />
       </main>
 
@@ -87,7 +114,6 @@ export default function HomePage() {
         crossOrigin="anonymous"
         async
       />
-
 
       {/* ✅ Ahrefs Analytics */}
       <Script
@@ -117,5 +143,5 @@ export default function HomePage() {
         crossOrigin="anonymous"
       />
     </>
-  )
+  );
 }
