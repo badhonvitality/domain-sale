@@ -524,6 +524,35 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
 
+         {/* ✅ PopAds Anti-Adblock */}
+<Script
+  id="popads-antiadblock"
+  strategy="beforeInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      // This feature is only for advanced users. Please refer to the documentation before using.
+      // Documentation: https://www.popads.net/help
+      // Manage API Keys: https://www.popads.net/account/api
+      // Anti-Adblock adcode:
+      (function(){
+        var _pop = _pop || [];
+        _pop.push(['siteId', 5226791]);
+        _pop.push(['minBid', 0]);
+        _pop.push(['popundersPerIP', 0]);
+        _pop.push(['delayBetween', 0]);
+        _pop.push(['default', false]);
+        _pop.push(['defaultPerDay', 0]);
+        _pop.push(['topmostLayer', 'never']);
+        var pa = document.createElement('script');
+        pa.type = 'text/javascript';
+        pa.async = true;
+        pa.src = 'https://www.popads.net/api/website_code?key=da77701b762fcaae226582242e10de79e9450fde&website_id=5226791&tl=auto&aab=1&of=1';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(pa, s);
+      })();
+    `,
+  }}
+/>
 
         {/* ✅ Google Analytics */}
         <script async src="https://cse.google.com/cse.js?cx=d459522f598cc4936">
