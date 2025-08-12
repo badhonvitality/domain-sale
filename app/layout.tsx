@@ -524,47 +524,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
 
-         {/* ✅ PopAds Anti-Adblock */}
-       <script
-  type="text/javascript"
-  data-cfasync="false"
-  dangerouslySetInnerHTML={{
-    __html: `
-      /*<![CDATA[/* */
-      (function(){
-        var p = window,
-            w = "e1ce1bf285a09b736491534bba87fa03",
-            l = [["siteId", 339+876-916-102+5226594],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],
-            t = ["d3d3LnByZW1pdW12ZXJ0aXNpbmcuY29tL2dkamFuZ28ubWluLmNzcw==","ZDJqMDQyY2oxNDIxd2kuY2xvdWRmcm9udC5uZXQvbFEvenNoYS5qcw=="],
-            i = -1, f, a, k = function(){
-              clearTimeout(a);
-              i++;
-              if(t[i] && !(1780889102000 < (new Date).getTime() && 1 < i)){
-                f = p.document.createElement("script");
-                f.type = "text/javascript";
-                f.async = !0;
-                var u = p.document.getElementsByTagName("script")[0];
-                f.src = "https://" + atob(t[i]);
-                f.crossOrigin = "anonymous";
-                f.onerror = k;
-                f.onload = function(){
-                  clearTimeout(a);
-                  p[w.slice(0,16) + w.slice(0,16)] || k();
-                };
-                a = setTimeout(k, 5E3);
-                u.parentNode.insertBefore(f, u);
-              }
-            };
-        if(!p[w]){
-          try { Object.freeze(p[w] = l); } catch(e){}
-          k();
-        }
-      })();
-      /*]]>/* */
-    `,
-  }}
-/>
-
+    
 
         {/* ✅ Google Analytics */}
         <script async src="https://cse.google.com/cse.js?cx=d459522f598cc4936">
